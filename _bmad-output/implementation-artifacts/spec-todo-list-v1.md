@@ -2,7 +2,8 @@
 title: 'TODO List Application - Full Implementation'
 type: 'feature'
 created: '2026-05-27'
-status: 'draft'
+status: 'in-review'
+baseline_commit: '201cfbc18a174ed01039cc0f74c5bc5a34f69d48'
 context: [
   '{project-root}/_bmad-output/planning-artifacts/architecture.md',
   '{project-root}/_bmad-output/planning-artifacts/business-rules.md',
@@ -79,21 +80,21 @@ context: [
 ## Tasks & Acceptance
 
 **Execution:**
-- [ ] `todo-list/package.json` -- Add `@supabase/supabase-js` dependency -- Required for AD-02 Supabase integration
-- [ ] `todo-list/.env.local` -- Create with `NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `NEXT_PUBLIC_USE_MOCK_DATA=true` (default to mock for dev) -- Environment config per Winston's AD-02
-- [ ] `todo-list/lib/types/todo.ts` -- Define Todo interface matching briefing structure (id, title, description, completed, createdAt) -- Type safety foundation
-- [ ] `todo-list/lib/supabase/server.ts` -- Initialize Supabase client with env vars, export singleton -- AD-02 implementation
-- [ ] `todo-list/lib/data/mock.ts` -- Export mock todos array (~5 sample tasks) -- AD-03 fallback data
-- [ ] `todo-list/lib/data/todos.ts` -- Implement getTodos(), getTodoById() with `USE_MOCK` flag check -- Data access abstraction per AD-03
-- [ ] `todo-list/app/actions/todos.ts` -- Implement createTodo, updateTodo, deleteTodo, toggleComplete Server Actions with BR-10 validation -- Mutation layer per Winston's server-side pattern
-- [ ] `todo-list/app/components/FilterTabs.tsx` -- Three buttons (All/Pending/Completed) with active state styling -- Sally's filter UI, client component for state
-- [ ] `todo-list/app/components/TodoItem.tsx` -- Card with checkbox, title/description, edit/delete icons, inline edit mode -- Sally's task card spec, handles BR-02 lifecycle
-- [ ] `todo-list/app/components/TodoForm.tsx` -- Modal with title (required) + description (optional) fields, validation per BR-10, FAB trigger -- Sally's add form + validation
-- [ ] `todo-list/app/components/TodoList.tsx` -- Client component managing filter state, rendering filtered TodoItem array, empty states per Sally's spec -- Main UI orchestrator
-- [ ] `todo-list/app/components/OfflineBanner.tsx` -- Yellow banner "Offline mode — data not syncing" when mock enabled -- Sally's offline state communication
-- [ ] `todo-list/app/page.tsx` -- Replace boilerplate: fetch todos server-side via getTodos(), render TodoList with initial data -- Entry point, Winston's RSC pattern
-- [ ] `todo-list/app/layout.tsx` -- Update metadata title to "TODO List", add centered max-w-800px wrapper per Sally's layout -- Page structure
-- [ ] `todo-list/app/globals.css` -- Verify Tailwind base styles, add focus-visible styles for accessibility -- Sally's a11y requirement
+- [x] `todo-list/package.json` -- Add `@supabase/supabase-js` dependency -- Required for AD-02 Supabase integration
+- [x] `todo-list/.env.local` -- Create with `NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `NEXT_PUBLIC_USE_MOCK_DATA=true` (default to mock for dev) -- Environment config per Winston's AD-02
+- [x] `todo-list/lib/types/todo.ts` -- Define Todo interface matching briefing structure (id, title, description, completed, createdAt) -- Type safety foundation
+- [x] `todo-list/lib/supabase/server.ts` -- Initialize Supabase client with env vars, export singleton -- AD-02 implementation
+- [x] `todo-list/lib/data/mock.ts` -- Export mock todos array (~5 sample tasks) -- AD-03 fallback data
+- [x] `todo-list/lib/data/todos.ts` -- Implement getTodos(), getTodoById() with `USE_MOCK` flag check -- Data access abstraction per AD-03
+- [x] `todo-list/app/actions/todos.ts` -- Implement createTodo, updateTodo, deleteTodo, toggleComplete Server Actions with BR-10 validation -- Mutation layer per Winston's server-side pattern
+- [x] `todo-list/app/components/FilterTabs.tsx` -- Three buttons (All/Pending/Completed) with active state styling -- Sally's filter UI, client component for state
+- [x] `todo-list/app/components/TodoItem.tsx` -- Card with checkbox, title/description, edit/delete icons, inline edit mode -- Sally's task card spec, handles BR-02 lifecycle
+- [x] `todo-list/app/components/TodoForm.tsx` -- Modal with title (required) + description (optional) fields, validation per BR-10, FAB trigger -- Sally's add form + validation
+- [x] `todo-list/app/components/TodoList.tsx` -- Client component managing filter state, rendering filtered TodoItem array, empty states per Sally's spec -- Main UI orchestrator
+- [x] `todo-list/app/components/OfflineBanner.tsx` -- Yellow banner "Offline mode — data not syncing" when mock enabled -- Sally's offline state communication
+- [x] `todo-list/app/page.tsx` -- Replace boilerplate: fetch todos server-side via getTodos(), render TodoList with initial data -- Entry point, Winston's RSC pattern
+- [x] `todo-list/app/layout.tsx` -- Update metadata title to "TODO List", add centered max-w-800px wrapper per Sally's layout -- Page structure
+- [x] `todo-list/app/globals.css` -- Verify Tailwind base styles, add focus-visible styles for accessibility -- Sally's a11y requirement
 
 **Acceptance Criteria:**
 - Given mock mode enabled (`NEXT_PUBLIC_USE_MOCK_DATA=true`), when page loads, then yellow offline banner appears and mock tasks display
