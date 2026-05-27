@@ -1,8 +1,8 @@
-import { supabase } from '@/lib/supabase/server';
+import { supabase, isSupabaseConfigured } from '@/lib/supabase/server';
 import { Todo } from '@/lib/types/todo';
 import { mockTodos } from '@/lib/data/mock';
 
-const USE_MOCK = process.env.NEXT_PUBLIC_USE_MOCK_DATA === 'true';
+const USE_MOCK = process.env.NEXT_PUBLIC_USE_MOCK_DATA === 'true' || !isSupabaseConfigured;
 
 export async function getTodos(): Promise<Todo[]> {
   if (USE_MOCK) {

@@ -1,9 +1,9 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
-import { supabase } from '@/lib/supabase/server';
+import { supabase, isSupabaseConfigured } from '@/lib/supabase/server';
 
-const USE_MOCK = process.env.NEXT_PUBLIC_USE_MOCK_DATA === 'true';
+const USE_MOCK = process.env.NEXT_PUBLIC_USE_MOCK_DATA === 'true' || !isSupabaseConfigured;
 
 function validateTitle(title: string): string | null {
   const trimmed = title.trim();

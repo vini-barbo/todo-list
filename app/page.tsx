@@ -1,10 +1,11 @@
 import { getTodos } from '@/lib/data/todos';
+import { isSupabaseConfigured } from '@/lib/supabase/server';
 import TodoList from '@/app/components/TodoList';
 import OfflineBanner from '@/app/components/OfflineBanner';
 
 export default async function Home() {
   const todos = await getTodos();
-  const isReadOnly = process.env.NEXT_PUBLIC_USE_MOCK_DATA === 'true';
+  const isReadOnly = process.env.NEXT_PUBLIC_USE_MOCK_DATA === 'true' || !isSupabaseConfigured;
 
   return (
     <>
