@@ -1,0 +1,7 @@
+_bamd
+_bamd-output
+.agents
+.github
+docs
+
+.env
